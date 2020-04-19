@@ -1,3 +1,3 @@
 ---
 bootstrap_version: "4.4.1"
-bootstrap_directory: "/home/alain/bootstrap_css"
+bootstrap_directory: "$HOME/bootstrap_css"
