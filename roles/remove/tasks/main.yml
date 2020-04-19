@@ -1,0 +1,13 @@
+---
+- name: remove directory for bootstrap
+  file:
+    path: "{{ bootstrap_directory }}"
+    state: absent
+- debug:
+    msg: "You choose {{ removenode }}"
+
+- import_tasks: setup-RedHat.yml
+  when: ansible_os_family == 'RedHat' and "{{ removenode }}" == "y"
+
+- import_tasks: setup-Debian.yml
+  when: ansible_os_family == 'Debian' and "{{ removenode }}" == "y"

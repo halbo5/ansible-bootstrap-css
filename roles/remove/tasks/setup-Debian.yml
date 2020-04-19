@@ -1,0 +1,5 @@
+---
+- name: Remove Node.js
+  apt:
+    name: "nodejs={{ nodejs_version|regex_replace('x', '') }}*"
+    state: absent

@@ -1,0 +1,22 @@
+---
+- name: create directory for bootstrap
+  file:
+    path: "{{ bootstrap_directory }}"
+    state: directory
+
+
+- name: download bootstrap with npm
+  command: npm install bootstrap@{{ bootstrap_version }}
+  args:
+    chdir: "{{ bootstrap_directory }}"
+    creates: "{{ bootstrap_directory }}/node_modules"
+
+- name: create dist directory
+  file:
+    path: "{{ bootstrap_directory }}/dist"
+    state: directory
+
+- name: create scss directory
+  file:
+    path: "{{ bootstrap_directory }}/scss"
+    state: directory

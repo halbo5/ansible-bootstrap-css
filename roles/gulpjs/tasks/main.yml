@@ -1,0 +1,30 @@
+---
+- name: download gulp-cli with npm
+  command: npm install --global gulp-cli
+  args:
+    creates: /usr/bin/gulp
+- name: download dev files for gulpjs
+  command: npm install --save-dev gulp
+  args:
+    chdir: "{{ bootstrap_directory }}"
+    creates: "{{ bootstrap_directory }}/node_modules/gulp"
+- name: download gulp-sass
+  command: npm install --save-dev gulp-sass
+  args:
+    chdir: "{{ bootstrap_directory }}"
+    creates: "{{ bootstrap_directory }}/node_modules/gulp-sass"
+- name: download postcss, autoprefixer, cssnano and sourcemaps
+  command: npm install --save-dev gulp-postcss autoprefixer cssnano gulp-sourcemaps
+  args:
+    chdir: "{{ bootstrap_directory }}"
+    creates: "{{ bootstrap_directory }}/node_modules/gulp-sourcemaps"
+- name: copy gulpfile.js
+  copy:
+    src: gulpfile.js
+    dest: "{{ bootstrap_directory }}"
+- name: copy custom bootstrap scss
+  copy:
+    src: bootstrap-default.min.scss
+    dest: "{{ bootstrap_directory }}/scss"
+
+
