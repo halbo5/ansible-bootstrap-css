@@ -2,6 +2,8 @@
 
 Installs all required to customize Bootstrap with SASS : Node.js, bootstrap, dependencies, gulp, gulp-sass, ... Creates two folders scss and dist and adds a custom.scss in scss folder.
 
+Tested with Ubuntu and Debian. Should work with RedHat and CentOS.
+
 ## Requirements
 
 None.
